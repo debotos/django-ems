@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="title">List of {{title}}</h2>
+    <a class="button is-link" href="{% url "poll_add" %}">Add New</a>
+    <hr>
+    {% if questions %}
+        <ul>
+            {% for question in questions %}
+                <li class="box">
+                    <a href="{% url "polls_details" question.id %}">{{ question }}</a>
+                    <div style="float:right;">
+                        <a class="button" href="{% url "single_poll" question.id %}">Vote</a>
+                        <a class="button is-warning" href="{% url "poll_edit" question.id %}">Edit</a>
+                        <a class="button is-danger" href="{% url "poll_delete" question.id %}">Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>    
+    {% else %}
+        <p>There is no question available.</p>
+    {% endif %}
+{% endblock content %}

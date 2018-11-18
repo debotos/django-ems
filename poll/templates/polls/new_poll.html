@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <br>
+  <form method="post">
+      {% csrf_token %}
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        {{poll_form.as_table}}
+        {% for form in choice_forms %}
+          {{form.as_table}}
+        {% endfor %}
+      </table>
+      <br>
+      <button type="submit">Add Poll</button>
+  </form>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Details of the Employee</h2>
+  {% if user %}
+    <p>First Name: {{user.first_name}}</p>
+    <p>Last Name: {{user.last_name}}</p>
+    <p>User Name: {{user.username}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Role: {{user.role}}</p>
+    <p>Designation: {{user.employee.designation}}</p>
+    <p>Salary: {{user.employee.salary}}</p>
+    
+  {% else %}
+    <p>No info of this user!</p>
+  {% endif %}
+{% endblock content %}
